@@ -5,9 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="all.css">
     <link rel="stylesheet" href="dash.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="jscript/graph.js"></script>
+    <script src="./node_modules/d3/dist/d3.js"></script>
     <title>Aqua-AI</title>
+
   </head>
   <body>
+    <script>
+      let filename= 'trial.csv'
+      d3.csv(filename).then(function(loadedData){
+          let data = [];
+          let labels = [];
+          for(let i=0; i<loadedData.length; i++){
+              let counter= loadedData[i].count;
+              labels.push(counter);
+              let soil= loadedData[i].soil_m;
+              data.push(soil);
+          }
+          let options = {
+              type: 'line',
+              data: {
+              labels: labels,  // the labels we loaded!
+              datasets: [{
+                  data: data,    // the data we loaded!
+                  fill: false,
+                  pointRadius: 0,
+                  pointHoverRadius: 0,
+                  borderColor: 'rgb(150,00,00)'
+              }]
+              }
+          };
+          
+
+          let chart = new Chart(document.getElementById('soil'), options);
+      });
+  </script>
     <input type="checkbox" id="nav-toggle">
     <nav class="nav">
       <div class="sidebar-brand">
@@ -69,7 +102,7 @@
       <div class="wrapper">
         <div class="chart-flex">
           <div class="chart-container">
-            <img src="res/isaac-smith-AT77Q0Njnt0-unsplash.jpg" alt="" />
+            <canvas id="soil"></canvas>
           </div>
           <div class="chart-container">
             <img src="res/markus-winkler-IrRbSND5EUc-unsplash.jpg" alt="" />

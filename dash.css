@@ -147,12 +147,20 @@ header {
     
 }
 
+.chart-container canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
 .chart-container img {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     box-sizing: border-box;
 }
+
 
 .metrics {
     display: flex;
@@ -198,6 +206,7 @@ header {
     font-weight: 500;
     color: white;
 }
+
 
 
 @media only screen and (max-width:1280px) {
