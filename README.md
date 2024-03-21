@@ -17,7 +17,7 @@ https://github.com/AkshayPrasad25/Aqua-AI-TestRepo/assets/122083846/f7224a55-af5
 git clone https://github.com/AkshayPrasad25/Aqua-AI-TestRepo.git
 ```
 
-### [2] Install required packages in both Client and Server.
+### [2] Install required packages.
 ``` bash
 npm i
 ```
